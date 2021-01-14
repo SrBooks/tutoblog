@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaRoles extends Migration
+class CrearTablaArchivo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CrearTablaRoles extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('archivos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 50)->unique();
-            $table->string('slug', 50)->unique();
+            $table->unsignedBigInteger('model_id');
+            $table->string('model_type', '150');
+            $table->string('ruta', '150');
+            $table->string('extension', '10');
+            $table->integer('peso');
+            $table->boolean('local')->default(1);
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CrearTablaRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('archivos');
     }
 }
