@@ -72,7 +72,7 @@ class Instalador extends Command
     {
         return Usuario::create([
             'nombre' => 'tuto_admin',
-            'email' => 'maxpayne046@gmail.com',
+            'email' => 'tuto_admin@test.com',
             'password' => Hash::make('pass1234'),
             'estado' => 1
         ]);
